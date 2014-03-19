@@ -50,11 +50,33 @@ if not node.mysite.application.development
     source 'mysite.conf.erb'
     mode 0440
   end
+  template '/etc/init/mysite-worker.conf' do
+    source 'mysite-worker.conf.erb'
+    mode 0440
+  end
+
+  # provisions varnish config
+  template '/etc/default/varnish' do
+    source 'varnish.conf.erb'
+    mode 0440
+  end
+
+  # provisions varnish vcl config
+  template '/etc/varnish/default.vcl' do
+    source 'node.vcl.erb'
+    mode 0440
+  end
 
   # starts mysite service
   service 'mysite' do
     action :start
     provider Chef::Provider::Service::Upstart
+  end
+
+  # starts mysite service
+  service 'varnish' do
+    action :restart
+    provider Chef::Provider::Service::Init::Debian
   end
 
 end

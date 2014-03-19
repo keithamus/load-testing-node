@@ -4,3 +4,9 @@
 [submodule "cookbooks/apt"]
 	path = cookbooks/apt
 	url = http://github.com/opscode-cookbooks/apt.git
+[submodule "cookbooks/build-essential"]
+	path = cookbooks/build-essential
+	url = http://github.com/opscode-cookbooks/build-essential.git
+[submodule "cookbooks/varnish"]
+	path = cookbooks/varnish
+	url = https://github.com/opscode-cookbooks/varnish

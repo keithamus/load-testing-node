@@ -1,0 +1,16 @@
+<% (1..node.mysite.application.threads).each do |i| %>
+backend mysite<%= node.mysite.application.port + i %> {
+    .host = "127.0.0.1";
+    .port = "<%= node.mysite.application.port + i %>";
+}
+<% end %>
+
+director mysite round-robin {
+    <% (1..node.mysite.application.threads).each do |i| %>
+        { .backend = mysite<%= node.mysite.application.port + i %>; }
+    <% end %>
+}
+
+sub vcl_recv {
+    set req.backend = mysite;
+}
