@@ -1,0 +1,13 @@
+{
+    "name": "Server",
+    "version": "0.0.1",
+    "main": "server.js",
+    "private": true,
+    "scripts": {
+        "start": "node src/server.js"
+    },
+    "dependencies": {
+        "express": "",
+        "jade": ""
+    }
+}

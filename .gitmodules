@@ -1,0 +1,6 @@
+[submodule "cookbooks/nodejs"]
+	path = cookbooks/nodejs
+	url = https://github.com/mdxp/nodejs-cookbook
+[submodule "cookbooks/apt"]
+	path = cookbooks/apt
+	url = http://github.com/opscode-cookbooks/apt.git
