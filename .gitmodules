@@ -4,3 +4,9 @@
 [submodule "cookbooks/apt"]
 	path = cookbooks/apt
 	url = http://github.com/opscode-cookbooks/apt.git
+[submodule "cookbooks/haproxy"]
+	path = cookbooks/haproxy
+	url = http://github.com/hw-cookbooks/haproxy
+[submodule "cookbooks/cpu"]
+	path = cookbooks/cpu
+	url = http://github.com/Youscribe/cpu-cookbook

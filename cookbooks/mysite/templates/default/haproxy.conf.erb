@@ -1,0 +1,19 @@
+global
+  log 127.0.0.1 local0
+  nbproc 2
+
+defaults
+  mode http
+  timeout connect 5s
+  timeout client 50s
+  timeout server 50s
+  balance roundrobin
+
+frontend http
+  bind *:<%= node.mysite.application.port %>
+  default_backend mysite
+
+backend mysite
+  <% (1..node.mysite.application.threads).each do |i| %>
+    server worker-<%= i %> localhost:<%= node.mysite.application.port + i %> check
+  <% end -%>

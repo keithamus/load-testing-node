@@ -50,11 +50,27 @@ if not node.mysite.application.development
     source 'mysite.conf.erb'
     mode 0440
   end
+  template '/etc/init/mysite-worker.conf' do
+    source 'mysite-worker.conf.erb'
+    mode 0440
+  end
+
+  # provisions haproxy config
+  template '/etc/haproxy/haproxy.cfg' do
+    source 'haproxy.conf.erb'
+    mode 0440
+  end
 
   # starts mysite service
   service 'mysite' do
     action :start
     provider Chef::Provider::Service::Upstart
+  end
+
+  # starts haproxy service
+  service 'haproxy' do
+    action :restart
+    provider Chef::Provider::Service::Init::Debian
   end
 
 end
