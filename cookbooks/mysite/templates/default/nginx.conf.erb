@@ -1,0 +1,14 @@
+upstream backend {
+  <% (1..node.mysite.application.threads).each do |i| %>
+    server localhost:<%= node.mysite.application.port + i %>;
+  <% end -%>
+}
+
+server {
+
+    listen <%= node.mysite.application.port %>;
+
+    location / {
+        proxy_pass http://backend;
+    }
+}
