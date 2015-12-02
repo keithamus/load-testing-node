@@ -4,3 +4,27 @@
 [submodule "cookbooks/apt"]
 	path = cookbooks/apt
 	url = http://github.com/opscode-cookbooks/apt.git
+[submodule "cookbooks/nginx"]
+	path = cookbooks/nginx
+	url = http://github.com/getaroom/chef-nginx
+[submodule "cookbooks/ohai"]
+	path = cookbooks/ohai
+	url = http://github.com/opscode-cookbooks/ohai
+[submodule "cookbooks/build-essential"]
+	path = cookbooks/build-essential
+	url = http://github.com/opscode-cookbooks/build-essential
+[submodule "cookbooks/bluepill"]
+	path = cookbooks/bluepill
+	url = http://github.com/opscode-cookbooks/bluepill
+[submodule "cookbooks/rsyslog"]
+	path = cookbooks/rsyslog
+	url = http://github.com/opscode-cookbooks/rsyslog
+[submodule "cookbooks/runit"]
+	path = cookbooks/runit
+	url = http://github.com/hw-cookbooks/runit
+[submodule "cookbooks/yum"]
+	path = cookbooks/yum
+	url = http://github.com/opscode-cookbooks/yum
+[submodule "cookbooks/yum-epel"]
+	path = cookbooks/yum-epel
+	url = http://github.com/opscode-cookbooks/yum-epel

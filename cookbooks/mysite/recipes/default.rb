@@ -50,11 +50,27 @@ if not node.mysite.application.development
     source 'mysite.conf.erb'
     mode 0440
   end
+  template '/etc/init/mysite-worker.conf' do
+    source 'mysite-worker.conf.erb'
+    mode 0440
+  end
+
+  # provisions nginx config
+  template '/etc/nginx/sites-available/default' do
+    source 'nginx.conf.erb'
+    mode 0440
+  end
 
   # starts mysite service
   service 'mysite' do
     action :start
     provider Chef::Provider::Service::Upstart
+  end
+
+  # starts nginx service
+  service 'nginx' do
+    action :restart
+    provider Chef::Provider::Service::Init::Debian
   end
 
 end
